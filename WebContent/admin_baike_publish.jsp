@@ -165,6 +165,8 @@ int dluserid=10196;
 //) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 List<Mapx<String,Object>> showdiscuss1 = DB.getRunner().query("select canshu_url as canshu_url from sai_article where  author=? order by articleid desc limit 1",new MapxListHandler(),dluserid);
 int canshu_url=showdiscuss1.get(0).getInt("canshu_url");
+//显示文章信息
+List<Mapx<String,Object>> showdiscuss2 = DB.getRunner().query("select author,title,content1,articletype,projectname,projectdidian,projectlei,projectcreater,projectjigou,projecttime,price,fengge,kongjian,mianji,createtime,canshu_url,img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19,img20 from sai_article where  articleid=?",new MapxListHandler(),dluserid);
 //编辑保存文章信息
 System.out.println(request.getMethod());//获取request方法 POST or GET
 HashMap<String,String> param= G.getParamMap(request);
